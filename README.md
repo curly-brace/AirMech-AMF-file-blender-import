@@ -6,3 +6,5 @@ quick-n-dirty implementation, but handles mesh and uv data, so you will get a me
 Most models rely on bones to place some moving parts. That parts appear at 0,0,0 after import. I don't care, because it is very easy to place them right. But it is hard to tinker with binary file in hex-editor :feelsgood:
 
 BTW: i will include the script for quickbms that unpacks HPK files in which AMFs are located.
+
+Not actually written by me, found here http://forum.xentax.com/viewtopic.php?f=10&t=10318
