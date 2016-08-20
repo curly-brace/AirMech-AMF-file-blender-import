@@ -23,9 +23,9 @@ class AirMech(bpy.types.Operator):
     bl_description = 'Imports AMF model files from AirMech (which is not a well known 3d printing format)'
     bl_options = {'REGISTER', 'UNDO'}
 
-    filename = StringProperty(name="File Name", description="Name of the file")
-    directory = StringProperty(name="Directory", description="Directory of the file")
-
+    filename = StringProperty(name="File Name", description="Name of the file", options={'HIDDEN', 'SKIP_SAVE'})
+    directory = StringProperty(name="Directory", description="Directory of the file", options={'HIDDEN', 'SKIP_SAVE'})
+    filter_glob = StringProperty(default="*.amf", options={'HIDDEN', 'SKIP_SAVE'})
 
     def execute(self, context):
         filename = self.filename
