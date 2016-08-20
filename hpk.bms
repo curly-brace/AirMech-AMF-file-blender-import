@@ -1,0 +1,32 @@
+# AirMech (HPK format) 0.0.1
+#
+# Written by Ekey (h4x0r)
+#
+# script for QuickBMS http://quickbms.aluigi.org
+
+comtype unzip_dynamic
+
+idstring "HPK\x00"
+get VERSION long
+get FILES long
+get FIRSTFILEPOS long
+get VERSION long
+get NTABLESIZE long
+get NTABLEZSIZE long
+savepos NTABLEOFFSET
+
+clog MEMORY_FILE NTABLEOFFSET NTABLESIZE NTABLEZSIZE
+
+math NTABLEOFFSET += NTABLEZSIZE
+
+for i = 0 < FILES
+   get NAME string MEMORY_FILE
+   goto NTABLEOFFSET
+   get ZSIZE long
+   get OFFSET long
+   get SIZE long
+   get CRC long
+   get NULL long
+   math NTABLEOFFSET += 0x14
+   clog NAME OFFSET ZSIZE SIZE
+next i
